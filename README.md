@@ -11,8 +11,8 @@ Ini merupakan aplikasi berbasis web (PHP, MySQL/MariaDB) yang dapat dimanfaatkan
 1. Unduh telebih dahulu file [Kelulusan](https://github.com/slametbsan/kelulusan/archive/kelulusan.zip)
 2. Ekstrak dengan menggunakan _tools_ favorit anda: 7zip, WinRAR, WinZip, atau yang lain.
 3. Login ke cPanel web sekolah anda, 
-..* buat direktori/folder (misalnya: *lulus*) dalam direktori _document root_ (www, public_html, atau htdocs) pada server anda.
-..* buat database untuk menampung data kelulusan. Buat juga username dan password khusus untuk database kelulusan, jika perlu.
+  * buat direktori/folder (misalnya: *lulus*) dalam direktori _document root_ (www, public_html, atau htdocs) pada server anda.
+  * buat database untuk menampung data kelulusan. Buat juga username dan password khusus untuk database kelulusan, jika perlu.
 > Nama database pada prinsipnya bebas, walaupun pada aplikasi ini diberi nama **un2016** yang meng-indikasikan tahun pembuatan. Anda dapat memberi nama apa saja.
 4. Unggah file-file yang telah di-ekstrak ke direktori yang telah dibuat pada langkah-3.
 5. Edit file **database.php** sesuai dengan konfigurasi pada server anda. Jangan lupa untuk disimpan :)
