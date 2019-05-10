@@ -24,8 +24,8 @@ define('DB_NAME','un2016');     //ganti dengan nama database yang telah dibuat
 ```
 6. Buka laman *phpMyAdmin* dari cPanel dan impor file **un2016.sql** ke dalam database yang telah dibuat pada langkah-3.
 7. Jika sudah, anda dapat mengakses halaman kelulusan (misalnya: http://websekolah.sch.id/lulus/) dan halaman admin (misalnya: http://websekolah.sch.id/lulus/admin/)
-..* username: admin
-..* password: admin
+  * username: admin
+  * password: admin
 8. Pada halaman admin, anda dapat melakukan impor file kelulusan dalam format CSV (seperti pada file: *un_siswa.csv*). File CSV ini bisa anda buat dengan menggunakan aplikasi _spreadsheet_ seperti Ms Excel. Untuk mudahnya, anda dapat mengedit data dalam file *un_siswa.csv* yang disertakan.
 
 ## Pengembangan
