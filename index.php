@@ -44,7 +44,7 @@ $timestamp = strtotime($hsl['tgl_pengumuman']);
     </nav>
     
     <div class="container">
-        <h2>Pengumuman Kelulusan</h2>
+        <h2>Pengumuman Kelulusan <?=$hsl['tahun'] ?></h2>
 		<!-- countdown -->
 		
 		<div id="clock" class="lead"></div>

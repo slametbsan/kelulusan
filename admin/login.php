@@ -66,9 +66,10 @@ include "../database.php";
 	<?php
 	if(isset($_REQUEST['submit'])){
 		$username = $_REQUEST['username'];
-		$password = $_REQUEST['password'];
+        $username = preg_replace('/[^a-zA-Z0-9]/', '', $username);
+		$password = MD5($_REQUEST['password']);
 		
-		$hasil = mysqli_query($db_conn,"SELECT * FROM un_user WHERE username='$username' AND password=MD5('$password')");
+		$hasil = mysqli_query($db_conn,"SELECT * FROM un_user WHERE username='$username' AND password='$password'");
 			if(mysqli_num_rows($hasil) > 0){
 				session_start();
 				$data = mysqli_fetch_array($hasil);
@@ -83,14 +84,13 @@ include "../database.php";
 				header('Location: ./');
                 //echo '<script>window.location("./");</script>';
 			} else {
-				$pesan = 'Username dan Password tidak sesuai!';
+				echo '<script>alert("Username dan Password tidak sesuai!");</script>';
 			}
 	}
 		
 	?>
 		<form class="form-signin" method="post">
 			<h2 class="form-signin-heading">Silahkan login</h2>
-			<?php  ?>
 			<label for="inputUsername" class="sr-only">Username</label>
 			<input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
 			<label for="inputPassword" class="sr-only">Password</label>
