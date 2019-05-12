@@ -1,5 +1,10 @@
 <?php
 include "database.php";
+$que = mysqli_query($db_conn, "SELECT * FROM un_konfigurasi");
+$hsl = mysqli_fetch_array($que);
+$timestamp = strtotime($hsl['tgl_pengumuman']);
+//echo $timestamp;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +22,7 @@ include "database.php";
 </head>
 
 <body>
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -26,7 +31,7 @@ include "database.php";
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="./">Lulus 2016</a>
+              <a class="navbar-brand" href="./">Info Kelulusan <?=$hsl['sekolah'] ?></a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
@@ -40,7 +45,11 @@ include "database.php";
     
     <div class="container">
         <h2>Pengumuman Kelulusan</h2>
+		<!-- countdown -->
 		
+		<div id="clock" class="lead"></div>
+		
+		<div id="xpengumuman">
 		<?php
 		if(isset($_REQUEST['submit'])){
 			//tampilkan hasil queri jika ada
@@ -102,18 +111,34 @@ include "database.php";
 		<?php
 		}
 		?>
+		</div>
     </div><!-- /.container -->
 	
 	<footer class="footer">
 		<div class="container">
-			<p class="text-muted">&copy; 2016 &middot; Nama Sekolah</p>
+			<p class="text-muted">&copy; <?=$hsl['tahun'] ?> &middot; Tim IT <?=$hsl['sekolah'] ?></p>
 		</div>
 	</footer>
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/jquery.countdown.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jasny-bootstrap.min.js"></script>
+	<script src="js/jasny-bootstrap.min.js"></script>
+	<script type="text/javascript">
+	var skrg = Date.now();
+	$('#clock').countdown("<?=$hsl['tgl_pengumuman'] ?>", {elapse: true})
+	.on('update.countdown', function(event) {
+	var $this = $(this);
+	if (event.elapsed) {
+		$( "#xpengumuman" ).show();
+		$( "#clock" ).hide();
+	} else {
+		$this.html(event.strftime('Pengumuman dapat dilihat: <span>%H Jam %M Menit %S Detik</span> lagi'));
+		$( "#xpengumuman" ).hide();
+	}
+	});
+
+	</script>
 </body>
 </html>

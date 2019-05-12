@@ -74,7 +74,14 @@ include "../database.php";
 				$data = mysqli_fetch_array($hasil);
 				$_SESSION['logged'] = $data['UID'];
 				$_SESSION['username'] = $data['username'];
+                /* jika fungsi: 
+                        header('Location: ./'); 
+                   tidak bisa digunakan, HAPUS atau berikan tanda komentar
+                   kemudian aktifkan (hapus tanda //) pada skrip: 
+                        echo '<script>window.location("./");</script>';
+                */
 				header('Location: ./');
+                //echo '<script>window.location("./");</script>';
 			} else {
 				$pesan = 'Username dan Password tidak sesuai!';
 			}

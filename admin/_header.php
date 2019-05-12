@@ -1,5 +1,8 @@
 <?php
 if(isset($_SESSION['logged']) && !empty($_SESSION['logged'])){
+	$que = mysqli_query($db_conn, "SELECT * FROM un_konfigurasi");
+	$hsl = mysqli_fetch_array($que);
+	$timestamp = strtotime($hsl['tgl_pengumuman']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,6 +61,12 @@ if(isset($_SESSION['logged']) && !empty($_SESSION['logged'])){
 	  font-size: 80%;
 	}
     </style>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jasny-bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -70,27 +79,25 @@ if(isset($_SESSION['logged']) && !empty($_SESSION['logged'])){
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="./">Lulus 2016</a>
+              <a class="navbar-brand" href="./">Info Kelulusan <?=$hsl['sekolah'] ?></a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
 				<!--tampil setelah sukses login -->
-				<ul class="nav navbar-nav">
+				<ul class="nav navbar-nav navbar-right">
 					<li><a href="./">Home</a></li>
 					<li><a href="user.php">User</a></li>
 					<li><a href="data.php">Data</a></li>
+					<li><a href="konfigurasi.php">Konfigurasi</a></li>
+					<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo $_SESSION['username']; ?> <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+									<li><a href="logout.php">Logout</a></li>
+							</ul>
+					</li>
 				</ul>
-				<!-- dropdown logout -->
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php echo $_SESSION['username']; ?> <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="logout.php">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><!--/.nav-collapse -->
+		</div><!--/.nav-collapse -->
         </div>
     </nav>
 <?php
