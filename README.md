@@ -1,6 +1,11 @@
 # Aplikasi Pengumuman Kelulusan SMK
 Ini merupakan aplikasi berbasis web (PHP, MySQL/MariaDB) yang dapat dimanfaatkan untuk pengumuman kelulusan sekolah (SMK). Dengan aplikasi ini, siswa tidak perlu lagi datang ke sekolah untuk mengetahui hasil kelulusannya, cukup dengan akses internet (via komputer atau gadget). Dengan siswa mengakses web resmi sekolah, tentu akan meningkatkan visit-rate.
 
+## Update
+
+<img src="https://github.com/slametbsan/kelulusan/blob/kelulusan/screenshot1.png" alt="alt text" width="400">
+<img src="https://github.com/slametbsan/kelulusan/blob/kelulusan/screenshot2.png" alt="alt text" width="400">
+
 ## Spesifikasi
 1. Aplikasi ini ditulis dalam skrip PHP 5.x (ke atas) yang mendukung penggunaan sintaks _MySQL Improved_.
 2. Database MySQL/MariaDB. 
