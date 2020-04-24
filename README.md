@@ -1,6 +1,28 @@
 # Aplikasi Pengumuman Kelulusan SMK
 Ini merupakan aplikasi berbasis web (PHP, MySQL/MariaDB) yang dapat dimanfaatkan untuk pengumuman kelulusan sekolah (SMK). Dengan aplikasi ini, siswa tidak perlu lagi datang ke sekolah untuk mengetahui hasil kelulusannya, cukup dengan akses internet (via komputer atau gadget). Dengan siswa mengakses web resmi sekolah, tentu akan meningkatkan visit-rate.
 
+## Bugs?
+
+Ada beberapa orang yang berhasil melakukan instalasi secara lokal **tapi** gagal instalasi pada server hosting. Kegagalannya di-identifikasi **tidak bisa** login. FYI, aplikasi ini sebenarnya dalam bentuk PHP NATIVE dan sifatnya (amat) sangat sederhana. Fitur login yang digunakan dalam aplikasi ini menggunakan fungsi *redirect* dengan perintah ``header()`` dalam PHP (baca [Fungsi Header](https://www.php.net/manual/en/function.header.php) ini). Fitur login tidak berfungsi disebabkan halaman login **tidak dapat** melakukan *redirect*.
+
+### Kenapa Tidak Bisa?
+* Kemungkinan pertama, fitur redirect dengan perintah ``header()`` tidak di-ijinkan oleh server hosting. (kemungkinan ini sangat mustahil saat ini, kecuali menggunakan layanan gratisan)
+* Kemungkinan kedua, karena Byte Order Mark (BOM) pada file ``login.php``. Untuk mengetahuinya, aktifkan *error reporting* lengkap. Petunjuknya bisa baca [di sini](https://www.php.net/manual/en/function.error-reporting.php).
+
+### Solusinya?
+Bisa dengan menggunakan *redirect* a la JavaScript yang **sudah dicatat** dalam file ``login.php`` baris 78-88. Yang perlu diperhatikan adalah baris 84-85 **yang semula**
+```
+header('Location: ./');
+//echo '<script>window.location("./");</script>';
+```
+**ubah menjadi**
+```
+//header('Location: ./');
+echo '<script>window.location("./");</script>';
+```
+mudah kan?
+Masih juga bermasalah? Sebaiknya anda *hire* orang IT beneran yang bisa koding.
+
 ## Update
 
 <img src="https://github.com/slametbsan/kelulusan/blob/kelulusan/screenshot1.png" alt="alt text" width="400">
