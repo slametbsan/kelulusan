@@ -21,9 +21,10 @@ header('Location: ./');
 echo '<script>window.location("./");</script>';
 ```
 mudah kan?
-Masih juga bermasalah? Sebaiknya anda *hire* orang IT beneran yang bisa koding.
 
-## Update
+Masih juga bermasalah? Sebaiknya anda *hire* orang IT beneran yang bisa koding untuk memodifikasi aplikasi ini, *i mean it*.
+
+## Skrinsut
 
 <img src="https://github.com/slametbsan/kelulusan/blob/kelulusan/screenshot1.png" alt="alt text" width="400">
 <img src="https://github.com/slametbsan/kelulusan/blob/kelulusan/screenshot2.png" alt="alt text" width="400">
