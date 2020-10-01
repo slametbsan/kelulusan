@@ -6,7 +6,7 @@
 >
 > Berikut ini skrinsut ancamannya:
 >
-> <img src="https://github.com/slametbsan/kelulusan/blob/kelulusan/kelulusan-ancaman.png" alt="alt text" width="400">
+> <img src="https://github.com/slametbsan/kelulusan/blob/kelulusan/kelulusan-ancaman1.png" alt="alt text" width="400">
 
 
 # Aplikasi Pengumuman Kelulusan SMK
