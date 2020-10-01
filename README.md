@@ -1,3 +1,14 @@
+> # Penting!
+> Beberapa waktu lalu, saya mendapatkan email dari seseorang yang menginformasikan tentang kemungkinan celah keamanan dalam aplikasi ini (aplikasi kelulusan). Meskipun aplikasi ini saya bagikan secara cuma-cuma (free, gratis, gretongan) dan saya tidak bertanggung jawab terhadap masalah yang muncul pada pemakaian dan pengembangannya, tetap saja saya perlu menyampaikan "ancaman" ini agar saya dan juga anda (pemakai aplikasi ini) bisa tidur nyenyak.
+> ## Apa yang perlu dilakukan?
+> Pastikan anda mengatur hak akses file dan folder (direktori) aplikasi di server secara benar. Read/Write penuh **tidak direkomendasikan**.
+> Anda juga perlu upgrade ke PHP 7 dan memodifikasi skrip mengikuti panduan keamanan dari PHP.
+>
+> Berikut ini skrinsut ancamannya:
+>
+> <img src="https://github.com/slametbsan/kelulusan/blob/kelulusan/kelulusan-ancaman.png" alt="alt text" width="400">
+
+
 # Aplikasi Pengumuman Kelulusan SMK
 Ini merupakan aplikasi berbasis web (PHP, MySQL/MariaDB) yang dapat dimanfaatkan untuk pengumuman kelulusan sekolah (SMK). Dengan aplikasi ini, siswa tidak perlu lagi datang ke sekolah untuk mengetahui hasil kelulusannya, cukup dengan akses internet (via komputer atau gadget). Dengan siswa mengakses web resmi sekolah, tentu akan meningkatkan visit-rate.
 
