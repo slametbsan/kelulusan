@@ -65,9 +65,9 @@ $tgl_pengumuman = strip_tags($hsl['tgl_pengumuman']);
 				
 		?>
 			<table class="table table-bordered">
-				<tr><td>Nomor Ujian</td><td><?php echo $data['no_ujian']; ?></td></tr>
-				<tr><td>Nama Siswa</td><td><?php echo $data['nama']; ?></td></tr>
-				<tr><td>Kompetensi Keahlian</td><td><?php echo $data['komli']; ?></td></tr>
+				<tr><td>Nomor Ujian</td><td><?= htmlspecialchars($data['no_ujian']); ?></td></tr>
+				<tr><td>Nama Siswa</td><td><?= htmlspecialchars($data['nama']); ?></td></tr>
+				<tr><td>Kompetensi Keahlian</td><td><?= htmlspecialchars($data['komli']); ?></td></tr>
 			</table>
 			<table class="table table-bordered">
 				<thead>
