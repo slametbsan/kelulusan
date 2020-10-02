@@ -3,6 +3,10 @@ include "database.php";
 $que = mysqli_query($db_conn, "SELECT * FROM un_konfigurasi");
 $hsl = mysqli_fetch_array($que);
 $timestamp = strtotime($hsl['tgl_pengumuman']);
+// menghapus tags html (mencegah serangan jso pada halaman index)
+$sekolah = strip_tags($hsl['sekolah']);
+$tahun = strip_tags($hsl['tahun']);
+$tgl_pengumuman = strip_tags($hsl['tgl_pengumuman']);
 //echo $timestamp;
 
 ?>
@@ -31,7 +35,7 @@ $timestamp = strtotime($hsl['tgl_pengumuman']);
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="./">Info Kelulusan <?=$hsl['sekolah'] ?></a>
+              <a class="navbar-brand" href="./">Info Kelulusan <?=$sekolah; ?></a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
@@ -44,16 +48,16 @@ $timestamp = strtotime($hsl['tgl_pengumuman']);
     </nav>
     
     <div class="container">
-        <h2>Pengumuman Kelulusan <?=$hsl['tahun'] ?></h2>
+        <h2>Pengumuman Kelulusan <?= $tahun; ?></h2>
 		<!-- countdown -->
 		
 		<div id="clock" class="lead"></div>
 		
 		<div id="xpengumuman">
 		<?php
-		if(isset($_REQUEST['submit'])){
+		if(isset($_POST['submit'])){
 			//tampilkan hasil queri jika ada
-			$no_ujian = $_REQUEST['nomor'];
+			$no_ujian = stripslashes($_POST['nomor']);
 			
 			$hasil = mysqli_query($db_conn,"SELECT * FROM un_siswa WHERE no_ujian='$no_ujian'");
 			if(mysqli_num_rows($hasil) > 0){
@@ -75,10 +79,11 @@ $timestamp = strtotime($hsl['tgl_pengumuman']);
 				</tr>
 				</thead>
 				<tbody>
-					<td><?php echo $data['n_bin']; ?></td>
-					<td><?php echo $data['n_big']; ?></td>
-					<td><?php echo $data['n_mat']; ?></td>
-					<td><?php echo $data['n_kejuruan']; ?></td>
+					// htmlspecialchars() digunakan agar tidak mengeksekusi kode html
+					<td><?= htmlspecialchars($data['n_bin']); ?></td>
+					<td><?= htmlspecialchars($data['n_big']); ?></td>
+					<td><?= htmlspecialchars($data['n_mat']); ?></td>
+					<td><?= htmlspecialchars($data['n_kejuruan']); ?></td>
 				</tbody>
 			</table>
 			
@@ -116,7 +121,7 @@ $timestamp = strtotime($hsl['tgl_pengumuman']);
 	
 	<footer class="footer">
 		<div class="container">
-			<p class="text-muted">&copy; <?=$hsl['tahun'] ?> &middot; Tim IT <?=$hsl['sekolah'] ?></p>
+			<p class="text-muted">&copy; <?= $tahun; ?> &middot; Tim IT <?= $sekolah; ?></p>
 		</div>
 	</footer>
     
@@ -127,7 +132,7 @@ $timestamp = strtotime($hsl['tgl_pengumuman']);
 	<script src="js/jasny-bootstrap.min.js"></script>
 	<script type="text/javascript">
 	var skrg = Date.now();
-	$('#clock').countdown("<?=$hsl['tgl_pengumuman'] ?>", {elapse: true})
+	$('#clock').countdown("<?= $tgl_pengumuman; ?>", {elapse: true})
 	.on('update.countdown', function(event) {
 	var $this = $(this);
 	if (event.elapsed) {
